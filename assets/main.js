@@ -152,9 +152,8 @@
     });
   }
 
-  /* ── detaily: tažení myší ── */
-  const rail = $('.details__rail');
-  if (rail && fine) {
+  /* ── pásy (detaily, další plátna): tažení myší ── */
+  if (fine) $$('.details__rail').forEach(rail => {
     let down = false, sx = 0, sl = 0, moved = false;
     rail.addEventListener('pointerdown', e => { down = true; moved = false; sx = e.clientX; sl = rail.scrollLeft; });
     addEventListener('pointerup', () => { if (down) { down = false; rail.classList.remove('is-drag'); } });
@@ -165,20 +164,42 @@
       rail.scrollLeft = sl - dx;
     });
     rail.addEventListener('click', e => { if (moved) { e.preventDefault(); e.stopPropagation(); } }, true);
-  }
+  });
 
   /* ── lightbox ── */
   const works = [
-    { src: 'assets/img/exodus-z-ticha.webp', t: 'Exodus z ticha', m: 'První obraz z nového cyklu · technika a rozměr doplníme' },
-    { src: 'assets/img/obraz-dvojice.webp', t: 'Bez názvu', m: 'název a rozměr doplníme s autorem' },
-    { src: 'assets/img/obraz-vzhuru.webp', t: 'Bez názvu', m: 'název a rozměr doplníme s autorem' },
-    { src: 'assets/img/obraz-ruce.webp', t: 'Bez názvu', m: 'název a rozměr doplníme s autorem' },
-    { src: 'assets/img/obraz-bila.webp', t: 'Bez názvu', m: 'název a rozměr doplníme s autorem' },
-    { src: 'assets/img/obraz-jeskyne.webp', t: 'Bez názvu', m: '„V něčem to připomíná jeskynní malby…“' },
-    { src: 'assets/img/obraz-zluta.webp', t: 'Bez názvu', m: 'název a rozměr doplníme s autorem' },
-    { src: 'assets/img/obraz-okr.webp', t: 'Bez názvu', m: 'název a rozměr doplníme s autorem' },
-    { src: 'assets/img/obraz-cervena.webp', t: 'Bez názvu', m: 'název a rozměr doplníme s autorem' },
-    { src: 'assets/img/obraz-okna.webp', t: 'Bez názvu', m: 'název a rozměr doplníme s autorem' },
+    {"src": "assets/img/d/exodus-2.webp", "t": "Exodus z ticha 2.0", "m": "Exodus from Silence 2.0 · cyklus Exodus z ticha · technika, rozměr a rok doplníme"},
+    {"src": "assets/img/exodus-z-ticha.webp", "t": "Exodus z ticha", "m": "první obraz cyklu · foto: Deník / Zuzana Vykoukalová (náhled)"},
+    {"src": "assets/img/d/hledani-svetla.webp", "t": "Hledání světla", "m": "Finding Light · akryl na plátně · 2025 · rozměr a dostupnost doplníme"},
+    {"src": "assets/img/d/prvni-krok-do-neznama.webp", "t": "První krok do neznáma", "m": "The First Step into the Unknown · akryl na plátně · rok, rozměr a dostupnost doplníme"},
+    {"src": "assets/img/d/hlas-uvnitr-temnoty.webp", "t": "Hlas uvnitř temnoty", "m": "A Voice Within the Darkness · technika, rozměr, rok a dostupnost doplníme"},
+    {"src": "assets/img/d/broken-silence.webp", "t": "Broken Silence", "m": "technika, rozměr, rok a dostupnost doplníme"},
+    {"src": "assets/img/d/guardian-of-shadows.webp", "t": "Guardian of Shadows", "m": "technika, rozměr, rok a dostupnost doplníme"},
+    {"src": "assets/img/d/escape-from-the-void.webp", "t": "Escape from the Void", "m": "technika, rozměr, rok a dostupnost doplníme"},
+    {"src": "assets/img/d/crossing-of-shadows.webp", "t": "Crossing of Shadows", "m": "technika, rozměr, rok a dostupnost doplníme"},
+    {"src": "assets/img/d/deep-subconscious.webp", "t": "Deep Subconscious", "m": "technika, rozměr, rok a dostupnost doplníme"},
+    {"src": "assets/img/d/pieta-in-blood.webp", "t": "Pieta in Blood", "m": "technika, rozměr, rok a dostupnost doplníme"},
+    {"src": "assets/img/d/enclosed-in-crimson.webp", "t": "Enclosed in Crimson", "m": "technika, rozměr, rok a dostupnost doplníme"},
+    {"src": "assets/img/d/procession-of-the-damned.webp", "t": "Procession of the Damned", "m": "technika, rozměr, rok a dostupnost doplníme"},
+    {"src": "assets/img/d/rise-and-fall.webp", "t": "Rise and Fall", "m": "technika, rozměr, rok a dostupnost doplníme"},
+    {"src": "assets/img/d/crucifixion-of-a-thought.webp", "t": "Crucifixion of a Thought", "m": "technika, rozměr, rok a dostupnost doplníme"},
+    {"src": "assets/img/d/anatomy-of-chaos.webp", "t": "Anatomy of Chaos", "m": "technika, rozměr, rok a dostupnost doplníme"},
+    {"src": "assets/img/d/the-endless-line.webp", "t": "The Endless Line", "m": "technika, rozměr, rok a dostupnost doplníme"},
+    {"src": "assets/img/d/the-screamed-canvas.webp", "t": "The Screamed Canvas", "m": "technika, rozměr, rok a dostupnost doplníme"},
+    {"src": "assets/img/d/light-from-above.webp", "t": "Light from Above", "m": "technika, rozměr, rok a dostupnost doplníme"},
+    {"src": "assets/img/d/the-last-embrace.webp", "t": "The Last Embrace", "m": "technika, rozměr, rok a dostupnost doplníme"},
+    {"src": "assets/img/d/atelier-0153.webp", "t": "Bez názvu", "m": "fotografie z ateliéru, 6. 9. 2026 · název a rozměr doplníme"},
+    {"src": "assets/img/d/atelier-0155.webp", "t": "Bez názvu", "m": "fotografie z ateliéru, 6. 9. 2026 · název a rozměr doplníme"},
+    {"src": "assets/img/d/atelier-0156.webp", "t": "Bez názvu", "m": "fotografie z ateliéru, 6. 9. 2026 · název a rozměr doplníme"},
+    {"src": "assets/img/d/atelier-0158.webp", "t": "Bez názvu", "m": "fotografie z ateliéru, 6. 9. 2026 · název a rozměr doplníme"},
+    {"src": "assets/img/d/atelier-0159.webp", "t": "Bez názvu", "m": "fotografie z ateliéru, 6. 9. 2026 · název a rozměr doplníme"},
+    {"src": "assets/img/d/atelier-0161.webp", "t": "Bez názvu", "m": "fotografie z ateliéru, 6. 9. 2026 · název a rozměr doplníme"},
+    {"src": "assets/img/d/atelier-0162.webp", "t": "Bez názvu", "m": "fotografie z ateliéru, 6. 9. 2026 · název a rozměr doplníme"},
+    {"src": "assets/img/d/atelier-0163.webp", "t": "Bez názvu", "m": "fotografie z ateliéru, 6. 9. 2026 · název a rozměr doplníme"},
+    {"src": "assets/img/d/atelier-0165.webp", "t": "Bez názvu", "m": "fotografie z ateliéru, 6. 9. 2026 · název a rozměr doplníme"},
+    {"src": "assets/img/d/atelier-0167.webp", "t": "Bez názvu", "m": "fotografie z ateliéru, 6. 9. 2026 · název a rozměr doplníme"},
+    {"src": "assets/img/d/atelier-0169.webp", "t": "Bez názvu", "m": "fotografie z ateliéru, 6. 9. 2026 · název a rozměr doplníme"},
+    {"src": "assets/img/d/atelier-0181.webp", "t": "Bez názvu", "m": "fotografie z ateliéru, 6. 9. 2026 · název a rozměr doplníme"},
   ];
   const lb = $('#lb'), lbImg = $('.lb__img', lb);
   let cur = 0;
@@ -233,6 +254,6 @@
     e.preventDefault();
     const d = new FormData(form);
     const body = `${d.get('msg') || ''}\n\n${d.get('name') || ''}\n${d.get('contact') || ''}`;
-    location.href = `mailto:malirstvi.gancar@email.cz?subject=${encodeURIComponent(d.get('topic') + ' — z webu')}&body=${encodeURIComponent(body)}`;
+    location.href = `mailto:gancarism@gmail.com?subject=${encodeURIComponent(d.get('topic') + ' — z webu')}&body=${encodeURIComponent(body)}`;
   });
 })();
